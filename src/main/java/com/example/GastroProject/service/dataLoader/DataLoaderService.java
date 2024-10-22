@@ -13,7 +13,7 @@ public class DataLoaderService {
     private final PatientProfileDataLoaderService patientProfileDataLoaderService;
     private final UserRegistrationDataLoaderService userRegistrationDataLoaderService;
     private final RoleDataLoaderService roleDataLoaderService;
-    private final AppointmentDataLoaderService appointmentDataLoaderService;
+    // private final AppointmentDataLoaderService appointmentDataLoaderService;
     private final PatientDataLoaderService patientDataLoaderService;
     private final DoctorDataLoaderService doctorDataLoaderService;
 

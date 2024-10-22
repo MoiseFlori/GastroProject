@@ -1,15 +1,10 @@
 package com.example.GastroProject.controller;
 
 import com.example.GastroProject.dto.TreatmentDto;
-import com.example.GastroProject.entity.Doctor;
 import com.example.GastroProject.entity.Patient;
-import com.example.GastroProject.repository.DoctorRepository;
-import com.example.GastroProject.repository.PatientRepository;
 import com.example.GastroProject.service.PatientService;
 import com.example.GastroProject.service.TreatmentService;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

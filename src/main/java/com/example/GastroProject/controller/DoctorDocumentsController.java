@@ -2,8 +2,6 @@ package com.example.GastroProject.controller;
 
 import com.example.GastroProject.entity.Document;
 import com.example.GastroProject.entity.Patient;
-import com.example.GastroProject.entity.Symptom;
-import com.example.GastroProject.repository.DocumentRepository;
 import com.example.GastroProject.service.DocumentService;
 import com.example.GastroProject.service.PatientService;
 import lombok.RequiredArgsConstructor;

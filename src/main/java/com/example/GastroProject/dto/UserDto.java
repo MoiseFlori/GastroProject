@@ -4,8 +4,6 @@ package com.example.GastroProject.dto;
 import com.example.GastroProject.entity.Role;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter

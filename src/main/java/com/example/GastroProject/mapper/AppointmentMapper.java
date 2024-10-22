@@ -8,5 +8,6 @@ import org.mapstruct.Mapper;
 public interface AppointmentMapper {
 
     AppointmentDto entityToDTO(Appointment appointment);
+
     Appointment DTOToEntity(AppointmentDto appointmentDto);
 }

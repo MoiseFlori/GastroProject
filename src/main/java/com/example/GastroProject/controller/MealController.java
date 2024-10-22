@@ -1,12 +1,8 @@
 package com.example.GastroProject.controller;
 
 import com.example.GastroProject.dto.MealDto;
-import com.example.GastroProject.dto.SymptomDto;
-import com.example.GastroProject.dto.TreatmentDto;
 import com.example.GastroProject.entity.Patient;
-import com.example.GastroProject.entity.User;
 import com.example.GastroProject.repository.PatientRepository;
-import com.example.GastroProject.repository.UserRepository;
 import com.example.GastroProject.service.MealService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,11 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.security.Principal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

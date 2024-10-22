@@ -1,7 +1,6 @@
 package com.example.GastroProject.service.dataLoader;
 
 import com.example.GastroProject.entity.*;
-import com.example.GastroProject.repository.DoctorRepository;
 import com.example.GastroProject.repository.PatientRepository;
 import com.example.GastroProject.repository.TreatmentRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 @Service
 @RequiredArgsConstructor

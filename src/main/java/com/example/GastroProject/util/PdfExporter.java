@@ -2,13 +2,11 @@ package com.example.GastroProject.util;
 
 import com.example.GastroProject.dto.TreatmentDto;
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;

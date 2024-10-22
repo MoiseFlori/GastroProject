@@ -8,7 +8,7 @@ import com.example.GastroProject.entity.Doctor;
 import com.example.GastroProject.entity.DoctorSchedule;
 import com.example.GastroProject.repository.DoctorRepository;
 import com.example.GastroProject.repository.DoctorScheduleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

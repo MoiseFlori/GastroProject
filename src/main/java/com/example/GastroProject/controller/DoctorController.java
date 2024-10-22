@@ -6,7 +6,6 @@ import com.example.GastroProject.entity.Doctor;
 import com.example.GastroProject.entity.Patient;
 import com.example.GastroProject.entity.PatientProfile;
 import com.example.GastroProject.entity.Role;
-import com.example.GastroProject.repository.DoctorRepository;
 import com.example.GastroProject.service.DoctorService;
 import com.example.GastroProject.service.PatientService;
 import com.example.GastroProject.util.Constants;
@@ -30,7 +29,7 @@ public class DoctorController {
 
     private final DoctorService doctorService;
     private final PatientService patientService;
-    private final DoctorRepository doctorRepository;
+
 
     @GetMapping("/home4")
     public String doctorPage() {

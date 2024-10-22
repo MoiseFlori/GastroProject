@@ -2,7 +2,7 @@ package com.example.GastroProject.advice;
 
 
 import com.example.GastroProject.exception.*;
-import org.hibernate.PropertyValueException;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
