@@ -18,7 +18,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +38,7 @@ public class DocumentsController {
         return "user";
     }
     @PostMapping("/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("patientFileName") String patientFileName, Principal principal) {
+    public String uploadFile(@RequestParam MultipartFile file, @RequestParam String patientFileName, Principal principal) {
         if (file.isEmpty()) {
             return "redirect:/uploadFailure";
         }
@@ -95,7 +95,7 @@ public class DocumentsController {
             // seteaza tipul de conținut al raspunsului HTTP corespunzator
             String contentType;
             try {
-                contentType = Files.probeContentType(Paths.get(document.getFilePath()));
+                contentType = Files.probeContentType(Path.of(document.getFilePath()));
             } catch (IOException e) {
                 e.printStackTrace();
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);

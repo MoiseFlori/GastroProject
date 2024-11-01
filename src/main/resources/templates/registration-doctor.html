@@ -1,104 +1,114 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Registration</title>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Gastro Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <style>
-    body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #cfe5fa;
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-    }
+    <link rel="stylesheet" th:href="@{/css/registration.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="registration-title">Registration Form</h2>
+      <form
+        th:action="@{/registration-doctor}"
+        method="post"
+        role="form"
+        th:object="${doctor}"
+      >
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            th:field="*{name}"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
 
-    .container {
-        width: 400px;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-        animation: lightEffect 1.5s infinite alternate;
-        text-align: center;
-    }
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            th:field="*{email}"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
 
-    h1 {
-        text-align: center;
-    }
+        <div class="form-group" th:if="${#fields.hasErrors('email')}">
+          <p
+            class="error"
+            th:each="error : ${#fields.errors('email')}"
+            th:text="${error}"
+          >
+            Email is already registered.
+          </p>
+        </div>
 
-    .form-group {
-        margin-bottom: 20px;
-    }
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            th:field="*{password}"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
 
-    input[type="submit"] {
-        width: 100%;
-        background-color: #2196F3;
-        color: #fff;
-        cursor: pointer;
-    }
+        <div class="form-group">
+          <label for="stamp">Code:</label>
+          <input
+            th:field="*{stamp}"
+            type="text"
+            id="stamp"
+            name="stamp"
+            placeholder="Enter your code"
+            required
+          />
+        </div>
 
-    a {
-        color: #2196F3;
-        text-decoration: none;
-    }
+        <div class="form-group">
+          <label for="specialization">Specialization:</label>
+          <input
+            th:field="*{specialization}"
+            type="text"
+            id="specialization"
+            name="specialization"
+            placeholder="Enter your specialization"
+            required
+          />
+        </div>
 
-    @keyframes lightEffect {
-        from {
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-        }
+        <input type="submit" value="Register" />
 
-        to {
-            box-shadow: 0 0 30px rgba(0, 0, 255, 0.5);
-        }
-    }
-
-
-  </style>
-</head>
-<body>
-
-<div class="container">
-
-  <h2>Registration Form</h2>
-  <form th:action="@{/registration-doctor}" method="post" role="form" th:object="${doctor}">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input th:field="*{name}" type="text" id="name" name="name" placeholder="Enter your name" required>
+        <div class="form-group">
+          <span
+            >Already registered?
+            <a href="/login" th:href="@{/login}">Login here</a></span
+          >
+        </div>
+      </form>
     </div>
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your email" required>
-    </div>
-
-    <div class="form-group" th:if="${#fields.hasErrors('email')}">
-      <p class="error" th:each="error : ${#fields.errors('email')}" th:text="${error}"> Email is already registered.</p>
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your password" required>
-    </div>
-
-    <div class="form-group">
-      <label for="stamp">Code:</label>
-      <input th:field="*{stamp}" type="text" id="stamp" name="stamp" placeholder="Enter your code" required>
-    </div>
-
-    <div class="form-group" >
-      <label for="specialization">Specialization:</label>
-      <input th:field="*{specialization}" type="text" id="specialization" name="specialization" placeholder="Enter your specialization" required>
-    </div>
-
-    <input type="submit" value="Register">
-
-    <div class="form-group">
-      <span>Already registered? <a href="/login" th:href="@{/login}">Login here</a></span>
-    </div>
-  </form>
-</div>
-</body>
+  </body>
 </html>

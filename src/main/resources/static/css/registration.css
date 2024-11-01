@@ -1,0 +1,169 @@
+/* Reseturi generale */
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 320px;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 280px;
+  background-color: #fff;
+  padding: 10px 20px 0 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(3, 215, 119, 0.3);
+  animation: lightEffect 1.5s infinite alternate;
+  text-align: center;
+}
+
+.registration-title {
+  font-size: 1.3em;
+  color: #046145;
+}
+
+.form-group {
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.8em;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.8em;
+  background-color: #f9f9f9;
+  transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #046145;
+  outline: none;
+}
+
+input[type="submit"] {
+  padding: 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+  background-color: #046145;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+  background-color: #034c37;
+}
+
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+a {
+  color: #046145;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.img-container {
+  display: none;
+}
+
+/* Animație de efect luminos */
+@keyframes lightEffect {
+  from {
+    box-shadow: 0 0 10px rgba(3, 215, 119, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(1, 65, 40, 0.5);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    min-width: 768px;
+  }
+
+  /* .medical-img {
+    width: 100px; 
+    height: auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+
+  .medical-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  } */
+
+  .container {
+    width: 480px;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    min-width: 1024px;
+  }
+}

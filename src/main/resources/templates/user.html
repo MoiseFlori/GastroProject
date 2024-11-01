@@ -1,86 +1,43 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head>
+    <meta charset="UTF-8" />
     <title>Gastro Tracker</title>
-    <link rel="stylesheet" th:href="@{/css/user.css}">
-    <style>
-                body {
-             text-align: center;
-             margin: 0;
-             padding: 0;
-             overflow: auto;
-         }
+    <link rel="stylesheet" th:href="@{/css/user.css}" />
 
-         header {
-             background-color: #e6f7ff;
-             padding: 10px 5px;
-             display: flex;
-             align-items: center;
-             justify-content: space-between;
-         }
-
-         nav ul {
-             list-style: none;
-             padding: 0;
-             display: flex;
-             justify-content: center;
-         }
-
-         nav li {
-             margin: 0 10px;
-         }
-
-         nav a {
-             text-decoration: none;
-             color: #333;
-             font-weight: bold;
-         }
-
-         nav a:hover {
-             color: #007bff;
-         }
-
-         .logout-link {
-             align-self: flex-end;
-             margin-left: 10px;
-         }
-
-         .container {
-             flex-grow: 1;
-             padding: 20px;
-         }
-
-    </style>
-
-
-</head>
-<body>
-<div class="background-container">
-    <header>
+  </head>
+  <body>
+    <div class="background-container">
+      <header>
         <div class="logo">
-            <img th:src="@{/images/gastroLogo.png}" alt="Logo" src="" style="max-width: 100px; max-height: 100px;">
+          <img
+            th:src="@{/images/gastroLogo.png}"
+            alt="Logo"
+            src=""
+            style="max-width: 100px; max-height: 100px"
+          />
         </div>
 
         <nav>
-            <ul>
-                <li><a th:href="@{/all-symptoms}">Symptoms</a></li>
-                <li><a th:href="@{/all-meals}">Meals</a></li>
-                <li><a th:href="@{/all-treatments}">Treatments</a></li>
-                <li><a th:href="@{/patient-appointments}">Appointments</a></li>
-                <li><a th:href="@{/documents}">Documents</a></li>
-                <li><a th:href="@{/patient-profile}">My Profile</a></li>
-            </ul>
+          <ul>
+            <li><a th:href="@{/all-symptoms}">Symptoms</a></li>
+            <li><a th:href="@{/all-meals}">Meals</a></li>
+            <li><a th:href="@{/all-treatments}">Treatments</a></li>
+            <li><a th:href="@{/patient-appointments}">Appointments</a></li>
+            <li><a th:href="@{/documents}">Documents</a></li>
+            <li><a th:href="@{/patient-profile}">My Profile</a></li>
+          </ul>
         </nav>
 
         <div class="logout-link" sec:authorize="isAuthenticated">
-            <a th:href="@{/logout}">
-                Logout
-            </a>
+          <a th:href="@{/logout}"> Logout </a>
         </div>
-    </header>
-    <div class="container">
+      </header>
+      <div class="container"></div>
     </div>
-</div>
-</body>
+  </body>
 </html>

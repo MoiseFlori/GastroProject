@@ -2,32 +2,86 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Gastro Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" th:href="@{/css/welcome.css}" />
   </head>
-  <body>
-    <section class="welcome-section">
-      <h1>Welcome to Gastro Tracker</h1>
-
-      <p>
-        Gastro Tracker is your personalized tool for managing and monitoring
-        dietary habits. Whether you're a patient or a doctor, this application
-        aims to simplify the process of tracking and maintaining a healthy
-        lifestyle for your digestive system.
-      </p>
-
-      <div class="buttons-container">
-        <form action="/redirect" method="post">
-          <button type="submit" name="role" value="patient">Patient</button>
-        </form>
-        <form action="/redirect" method="post">
-          <button type="submit" name="role" value="doctor">Doctor</button>
-        </form>
+  <body class="welcome-body">
+    <header class="welcome-section">
+      <div class="header-container">
+        <div class="logo-container">
+          <a href="./welcome.html" class="header-logo logo">
+            gastro<span>tracker</span>
+          </a>
+        </div>
+        <button class="burger-container modal-open">
+          <svg class="icon-burger-menu">
+            <use th:href="@{/icons.svg#icon-menu}"></use>
+          </svg>
+        </button>
+        <nav class="nav">
+          <ul class="menu-list">
+            <li class="menu-item">
+              <a class="menu-link" href="#about">About</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#information">Informations</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#reviews">Reviews</a>
+            </li>
+            <li class="menu-item auth-dropdown">
+              <a class="menu-link auth-button-header" href="#">Autentificare</a>
+              <ul class="auth-options">
+                <li>
+                  <a th:href="@{/registration}" class="auth-link">Pacient</a>
+                </li>
+                <li>
+                  <a th:href="@{/registration-doctor}" class="auth-link"
+                    >Doctor</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a th:href="@{/login}" class="menu-link login-link">Login</a>
+            </li>
+          </ul>
+        </nav>
       </div>
+    </header>
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <h1 class="about-title">Welcome to Gastro Tracker</h1>
 
+        <p>
+          Gastro Tracker is your personalized tool for managing and monitoring
+          dietary habits. Whether you're a patient or a doctor, this application
+          aims to simplify the process of tracking and maintaining a healthy
+          lifestyle for your digestive system.
+        </p>
+      </div>
+    </section>
+
+    <section class="info-section" id="information">
       <div class="info-container">
-        <div class="patient-info">
-          <h2>For Patients:</h2>
+        <div class="user-info">
+          <h2 class="category-user">For Patients:</h2>
           <ul>
             <li>
               Effortlessly log your daily meals, including breakfast, lunch, and
@@ -47,8 +101,8 @@
           </ul>
         </div>
 
-        <div class="doctor-info">
-          <h2>For Doctors:</h2>
+        <div class="user-info">
+          <h2 class="category-user">For Doctors:</h2>
           <ul>
             <li>
               Gain valuable insights into patients' eating patterns and
@@ -69,11 +123,187 @@
         </div>
       </div>
 
-      <p>
-        Gastro Tracker empowers you to actively manage your digestive health.
-        Start using the app today to gain a better understanding of your food
-        choices and their impact on your overall well-being.
-      </p>
+      <div class="auth-section">
+        <form action="/redirect" method="post">
+          <button class="auth-button" type="submit" name="role" value="patient">
+            Patient
+          </button>
+        </form>
+        <form action="/redirect" method="post">
+          <button class="auth-button" type="submit" name="role" value="doctor">
+            Doctor
+          </button>
+        </form>
+      </div>
     </section>
+
+    <section class="reviews-section" id="reviews">
+      <h2 class="reviews-title">What Our Users Say</h2>
+      <div class="review-card">
+        <div class="review-header">
+          <h3 class="review-author">Jane Doe</h3>
+          <div class="review-rating">★★★★☆</div>
+        </div>
+        <p class="review-text">
+          Gastro Tracker has made managing my meals and health so much easier!
+          It's a life changer for anyone with dietary restrictions.
+        </p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <h3 class="review-author">John Smith</h3>
+          <div class="review-rating">★★★★★</div>
+        </div>
+        <p class="review-text">
+          Love the features and ease of use! My doctor can see my diet history
+          easily now, and it’s improved my treatments significantly.
+        </p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <h3 class="review-author">Emily Rose</h3>
+          <div class="review-rating">★★★★☆</div>
+        </div>
+        <p class="review-text">
+          A fantastic app for anyone looking to keep track of their meals and
+          symptoms. Highly recommend!
+        </p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="tablet-desktop-container">
+          <div class="footer-and-sections-container">
+            <a href="./welcome.html" class="header-logo logo">
+              gastro<span>tracker</span>
+            </a>
+            <ul class="site-sections-list-footer">
+              <li class="site-section-item"><a href="#about">About</a></li>
+              <li class="site-section-item">
+                <a href="#information">Information</a>
+              </li>
+              <li class="site-section-item"><a href="#reviews">Reviews</a></li>
+            </ul>
+          </div>
+
+          <ul class="social-link-list-footer">
+            <li class="social-link-footer">
+              <a class="social-link-footer-icon" href="" target="_blank">
+                <svg class="footer-icon" width="24" height="24">
+                  <use th:href="@{/icons.svg#icon-instagram}"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-link-footer">
+              <a class="social-link-footer-icon" href="" target="_blank">
+                <svg class="footer-icon" width="24" height="24">
+                  <use th:href="@{/icons.svg#icon-youtube}"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-link-footer">
+              <a class="social-link-footer-icon" href="" target="_blank">
+                <svg class="footer-icon" width="24" height="24">
+                  <use th:href="@{/icons.svg#icon-facebook}"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="site-slogan">
+          Gastro Tracker is your trusted app for monitoring meals, symptoms, and
+          appointments, helping you manage your health more effectively.
+        </p>
+        <div class="policy-container">
+          <p class="policy-privacy">&copy; 2024 Gastro Tracker.</p>
+          <p class="policy-privacy">All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-menu-container" id="mobile-menu">
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <a href="./welcome.html" class="header-logo logo">
+            gastro<span>tracker</span>
+          </a>
+          <button class="mobile-menu-exit modal-close" type="button">
+            <svg
+              class="mobile-menu-exit-icon"
+              width="28"
+              height="28"
+              aria-label="mobile menu close icon"
+            >
+              <use th:href="@{/icons.svg#icon-close}"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="auth-section">
+          <form action="/redirect" method="post">
+            <button
+              class="auth-button"
+              type="submit"
+              name="role"
+              value="patient"
+            >
+              Patient
+            </button>
+          </form>
+          <form action="/redirect" method="post">
+            <button
+              class="auth-button"
+              type="submit"
+              name="role"
+              value="doctor"
+            >
+              Doctor
+            </button>
+          </form>
+        </div>
+        <nav class="mobile-menu-nav">
+          <ul class="mobile-menu-list">
+            <li class="mobile-menu-item modal-close">
+              <a class="mobile-menu-link" href="#about">About</a>
+            </li>
+            <li class="mobile-menu-item modal-close">
+              <a class="mobile-menu-link" href="#information">Informations</a>
+            </li>
+            <li class="mobile-menu-item modal-close">
+              <a class="mobile-menu-link" href="#reviews">Reviews</a>
+            </li>
+          </ul>
+        </nav>
+
+        <ul class="mobile-social-links-list">
+          <li class="mobile-social-item">
+            <a class="mobile-social-link" href="">
+              <svg class="mobile-menu-social-icon" width="24" height="24">
+                <use th:href="@{/icons.svg#icon-instagram}"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="mobile-social-item">
+            <a class="mobile-social-link" href="">
+              <svg class="mobile-menu-social-icon" width="24" height="24">
+                <use th:href="@{/icons.svg#icon-youtube}"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="mobile-social-item">
+            <a class="mobile-social-link" href="">
+              <svg class="mobile-menu-social-icon" width="24" height="24">
+                <use th:href="@{/icons.svg#icon-facebook}"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script type="module" th:src="@{/js/mobile-menu.js}"></script>
+    <script type="module" th:src="@{/js/dropdown.js}"></script>
   </body>
 </html>

@@ -1,125 +1,139 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Gastro Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color:#cfe5fa;
-            }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-        .container {
-            width: 400px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-            animation: lightEffect 1.5s infinite alternate;
-            text-align: center;
-        }
+    <link rel="stylesheet" th:href="@{/css/registration.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="registration-title">Registration Form</h2>
 
-        h1 {
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            background-color: #2196F3;
-            color: #fff;
-            cursor: pointer;
-        }
-
-
-        a {
-            color: #2196F3;
-            text-decoration: none;
-        }
-
-        @keyframes lightEffect {
-            from {
-                box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-            }
-
-            to {
-                box-shadow: 0 0 30px rgba(0, 0, 255, 0.5);
-            }
-        }
-
-
-
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-    <h2>Registration Form</h2>
-
-
-    <form th:action="@{/registration}" method="post" role="form" th:object="${patient}">
+      <form
+        th:action="@{/registration}"
+        method="post"
+        role="form"
+        th:object="${patient}"
+      >
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input th:field="*{name}" type="text" id="name" name="name" placeholder="Enter your name" required>
+          <label for="name">Name:</label>
+          <input
+            th:field="*{name}"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
         </div>
 
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your email" required>
+          <label for="email">Email:</label>
+          <input
+            th:field="*{email}"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
         </div>
 
         <div class="form-group" th:if="${#fields.hasErrors('email')}">
-            <p class="error" th:each="error : ${#fields.errors('email')}" th:text="${error}"> Email is already registered.</p>
+          <p
+            class="error"
+            th:each="error : ${#fields.errors('email')}"
+            th:text="${error}"
+          >
+            Email is already registered.
+          </p>
         </div>
 
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your password" required>
+          <label for="password">Password:</label>
+          <input
+            th:field="*{password}"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
         </div>
         <div class="form-group">
-            <label for="age">Age:</label>
-            <input th:field="*{age}" type="number" id="age" name="age" placeholder="Enter your age" required>
+          <label for="age">Age:</label>
+          <input
+            th:field="*{age}"
+            type="number"
+            id="age"
+            name="age"
+            placeholder="Enter your age"
+            required
+          />
         </div>
         <div class="form-group">
-            <label for="diagnosis">Diagnosis:</label>
-            <input th:field="*{diagnosis}" type="text" id="diagnosis" name="diagnosis" placeholder="Enter your diagnosis" required>
+          <label for="diagnosis">Diagnosis:</label>
+          <input
+            th:field="*{diagnosis}"
+            type="text"
+            id="diagnosis"
+            name="diagnosis"
+            placeholder="Enter your diagnosis"
+            required
+          />
         </div>
         <div class="form-group">
-            <label for="doctorId">Choose Doctor:</label>
-            <label>
-                <select th:field="*{doctorId}" class="form-control" id="doctorId">
-                    <option value="" selected>Select a doctor</option>
-                    <option th:each="doctor : ${doctors}" th:value="${doctor.doctorId}" th:text="${doctor.name}"></option>
-                </select>
-            </label>
+          <label for="doctorId">Choose Doctor:</label>
+          <label>
+            <select th:field="*{doctorId}" class="form-control" id="doctorId">
+              <option value="" selected>Select a doctor</option>
+              <option
+                th:each="doctor : ${doctors}"
+                th:value="${doctor.doctorId}"
+                th:text="${doctor.name}"
+              ></option>
+            </select>
+          </label>
         </div>
         <div class="form-group" th:if="${#fields.hasErrors('doctorId')}">
-            <p class="error" th:each="error : ${#fields.errors('doctorId')}" th:text="${error}">Please select a doctor.</p>
+          <p
+            class="error"
+            th:each="error : ${#fields.errors('doctorId')}"
+            th:text="${error}"
+          >
+            Please select a doctor.
+          </p>
         </div>
 
-
-
-
-
-
-
-
-
-        <input type="submit" value="Register">
+        <input type="submit" value="Register" />
 
         <div class="form-group">
-            <span>Already registered? <a th:href="@{/login}">Login here</a></span>
+          <span>Already registered? <a th:href="@{/login}">Login here</a></span>
         </div>
-    </form>
-</div>
-</body>
+      </form>
+    </div>
+    <!-- <div class="img-container">
+      <img
+        class="medical-img"
+        alt="Stethoscope"
+        th:src="@{/images/stethoscope.png}"
+      />
+    </div> -->
+  </body>
 </html>

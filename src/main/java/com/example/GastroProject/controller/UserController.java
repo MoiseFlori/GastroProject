@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/redirect")
-    public String redirectToRegistrationPage(@RequestParam("role") String role) {
+    public String redirectToRegistrationPage(@RequestParam String role) {
         if ("patient".equals(role)) {
             return "redirect:/registration";
         } else if ("doctor".equals(role)) {

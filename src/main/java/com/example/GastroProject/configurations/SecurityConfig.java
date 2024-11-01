@@ -1,7 +1,5 @@
 package com.example.GastroProject.configurations;
 
-
-
 import com.example.GastroProject.service.impl.UserServiceImpl;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,43 +19,46 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-
 import java.io.IOException;
 import java.util.Collection;
-
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-
-
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 		http.csrf(AbstractHttpConfigurer::disable)
 
 				.authorizeHttpRequests(request -> request
 						.requestMatchers("/admin-page").hasAuthority("ROLE_ADMIN")
-						.requestMatchers("/doctor-page").hasAnyAuthority("ROLE_DOCTOR","ROLE_ADMIN")
-						.requestMatchers("/user-page").hasAnyAuthority("ROLE_PATIENT","ROLE_ADMIN")
-						.requestMatchers("/registration", "/css/**","/registration-doctor","/welcome","/redirect","/v3/api-docs/**",
-								"/swagger-ui/**","/")
-
-						.permitAll()
+						.requestMatchers("/doctor-page").hasAnyAuthority("ROLE_DOCTOR", "ROLE_ADMIN")
+						.requestMatchers("/user-page").hasAnyAuthority("ROLE_PATIENT", "ROLE_ADMIN")
+						.requestMatchers(
+								"/registration",
+								"/registration-doctor",
+								"/welcome",
+								"/redirect",
+								"/v3/api-docs/**",
+								"/swagger-ui/**",
+								"/",
+								"/css/**",
+								"/js/**", // Permite accesul la fișierele JavaScript
+								"/images/**" // Permite accesul la fișierele de imagini
+						).permitAll()
 						.anyRequest().authenticated())
 
 				.formLogin(form -> form
 						.usernameParameter("email")
 						.loginPage("/login")
 						.loginProcessingUrl("/login")
-						//.defaultSuccessUrl("/user-page", true)
+						// .defaultSuccessUrl("/user-page", true)
 						.successHandler(myAuthenticationSuccessHandler())
 						.permitAll())
 
@@ -69,11 +70,13 @@ public class SecurityConfig {
 		return http.build();
 
 	}
+
 	@Bean
 	public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
 		return new AuthenticationSuccessHandler() {
 			@Override
-			public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
+			public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+					Authentication authentication) throws IOException {
 				String redirectUrl = null;
 				Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 				for (GrantedAuthority grantedAuthority : authorities) {
@@ -93,7 +96,6 @@ public class SecurityConfig {
 		};
 	}
 
-
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -104,9 +106,7 @@ public class SecurityConfig {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-        return new UserServiceImpl();
-    }
-
-
+		return new UserServiceImpl();
+	}
 
 }
