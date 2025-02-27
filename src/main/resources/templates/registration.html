@@ -21,9 +21,9 @@
 
     <link rel="stylesheet" th:href="@{/css/registration.css}" />
   </head>
-  <body>
-    <div class="container">
-      <h2 class="registration-title">Registration Form</h2>
+  <body class="body-form">
+    <div class="form-container">
+      <h2 class="form-title">Registration Form</h2>
 
       <form
         th:action="@{/registration}"
@@ -124,7 +124,7 @@
         <input type="submit" value="Register" />
 
         <div class="form-group">
-          <span>Already registered? <a th:href="@{/login}">Login here</a></span>
+          <span>Already registered? <a class="login-link" th:href="@{/login}">Login here</a></span>
         </div>
       </form>
     </div>

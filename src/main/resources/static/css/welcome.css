@@ -31,6 +31,18 @@ ol {
   padding-right: 20px;
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.logo-container {
+  position: absolute;
+  left: 20px;
+}
 .header-logo {
   font-size: 20px;
   font-weight: 500;
@@ -65,13 +77,30 @@ ol {
 .about-section {
   min-width: 300px;
   margin: 0px 10px;
-  height: 360px;
-  background-image: url("../images/about-background.webp");
+  height: 380px;
+  background-image: url("../images/about-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 12px;
   margin-top: 10px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .about-section {
+    background-image: url("../images/about-background-2x.jpg");
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 4), (min-resolution: 384dpi) {
+  .about-section {
+    background-image: url("../images/about-background-4x.jpg");
+  }
+}
+@media (min-width: 2560px) and (min-resolution: 192dpi) {
+  .about-section {
+    background-image: url("../images/about-background-4k.jpg");
+  }
 }
 .about-container {
   display: flex;
@@ -94,7 +123,7 @@ ol {
   padding-top: 10px;
 }
 
-p {
+.about-paragraph {
   width: 180px;
   font-family: "Inter", sans-serif;
   font-size: 12px;
@@ -279,6 +308,7 @@ p {
         background-color: #fbfbfb4d;
         text-transform: uppercase;
         padding: 15px 12px;
+        transition: backround-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
       }
     }
 
@@ -286,7 +316,6 @@ p {
     .site-section-item a:focus {
       color: #14533bcc;
       background-color: #fbfbfb;
-      transition: backround-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
@@ -466,7 +495,6 @@ p {
     align-items: center;
     margin-bottom: 10px;
   }
-
   .menu-list {
     display: flex;
     flex-direction: row;
@@ -534,7 +562,8 @@ p {
 
   .about-section {
     min-width: 740px;
-    height: 420px;
+    height: 580px;
+    padding-top: 40px;
   }
 
   .about-container {
@@ -548,7 +577,7 @@ p {
     letter-spacing: 0.04em;
   }
 
-  p {
+  .about-paragraph {
     width: 340px;
     font-family: "Inter", sans-serif;
     font-size: 20px;
@@ -557,7 +586,7 @@ p {
     outline: none;
     line-height: 22px;
   }
-  p:hover {
+  .about-paragraph:hover {
     transform: scale(1.1);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
@@ -568,45 +597,13 @@ p {
   }
 
   .info-container {
-    display: flex;
     flex-direction: row;
     width: 691px;
     height: 640px;
-    gap: 12px;
-    padding: 20px 20px;
   }
 
   .user-info {
     flex: 1;
-  }
-
-  .auth-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-  }
-
-  .auth-button {
-    background-color: #a8a7a7;
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .auth-button:hover {
-    background-color: #4b4c4b;
-    transform: scale(1.05);
-  }
-
-  .auth-button:active {
-    transform: scale(0.95);
   }
 
   .site-footer {
@@ -639,12 +636,87 @@ p {
 }
 
 @media only screen and (min-width: 1280px) {
+  .welcome-body {
+    min-width: 1280px;
+  }
+
+  .menu-item {
+    width: 100px;
+    height: 50px;
+  }
+
+  .about-section {
+    min-width: 1200px;
+    height: 720px;
+    padding-top: 50px;
+  }
+
+  .about-container {
+    gap: 70px;
+  }
+
+  .about-title {
+    padding-top: 20px;
+    width: 436px;
+    font-size: 50px;
+  }
+
+  .about-paragraph {
+    width: 440px;
+    font-size: 30px;
+    line-height: 28px;
+  }
+
+  .info-section {
+    min-width: 1260px;
+    margin: 10px 10px;
+  }
+
+  .info-container {
+    width: 940px;
+    height: 540px;
+  }
+
+  .reviews-section {
+    min-width: 1280px;
+    height: 400px;
+  }
+
+  .review-card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .review-card {
+    width: 400px;
+    height: 160px;
+  }
+
+  .review-header {
+    margin-bottom: 20px;
+  }
+
+  .review-author {
+    font-size: 1.3em;
+  }
+
+  .review-rating {
+    font-size: 1.5em;
+  }
+
+  .review-text {
+    width: 250px;
+    font-size: 0.9em;
+  }
+
   .site-footer {
     min-width: 1230px;
     margin-left: auto;
     margin-right: auto;
 
     .site-slogan {
+      font-size: 1.1em;
       min-width: 693px;
       margin-left: auto;
       margin-right: auto;

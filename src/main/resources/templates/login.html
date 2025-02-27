@@ -1,105 +1,98 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Gastro Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/registration.css}" />
+  </head>
 
-</head>
-<style>
-    body {
-         background-color: #cfe5fa;
-         height: 100vh;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         margin: 0;
-     }
-
-     .container {
-         width: 400px;
-         background-color: #fff;
-         padding: 20px;
-         border-radius: 8px;
-         box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-         text-align: center;
-     }
-
-
-
-     h1 {
-         text-align: center;
-     }
-
-     .form-group {
-         margin-bottom: 20px;
-     }
-
-     input[type="submit"] {
-         width: 100%;
-         background-color: #2196F3;
-         color: #fff;
-         cursor: pointer;
-     }
-
-     .remember-forgot {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         margin-top: 15px;
-     }
-
-     a {
-         color: #2196F3;
-         text-decoration: none;
-     }
-
-</style>
-<body>
-
-
-<div class="container">
-
-
-    <h1>Login Page</h1>
-    <form th:action="@{/login}" method="post">
+  <body class="body-form">
+    <div class="form-container">
+      <h2 class="form-title">Login Page</h2>
+      <form th:action="@{/login}" method="post">
         <div class="form-group">
-            <label for="email"> Email </label> :
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email Address"
-                   autofocus="autofocus">
+          <label for="email"> Email </label> :
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter Email Address"
+            autofocus="autofocus"
+          />
         </div>
         <div class="form-group">
-            <label for="password">Password</label>:
-            <input type="password" id="password" name="password" class="form-control"
-                   placeholder="Enter Password" onkeyup="checkCapsLock(event)">
+          <label for="password">Password</label>:
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter Password"
+            onkeyup="checkCapsLock(event)"
+          />
         </div>
-        <!-- Afiseaza avertismentul doar daca CapsLock este activata -->
-        <div id="capsLockWarning" style="color: blue; visibility: hidden;">Caps Lock is ON!</div><br>
+        <div id="capsLockWarning" style="color: green; visibility: hidden">
+          Caps Lock is ON!
+        </div>
+        <br />
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Login</button>
+          <button type="submit" class="btn btn-success">Login</button>
         </div>
-    </form>
-    <div class="remember-forgot">
-        <label><input type="checkbox"> Remember me</label>
-        <a href="/forgot-password" th:href="@{/forgot-password}" style="color: #2196F3;">Forgot Password?</a>
+      </form>
+      <div class="remember-forgot">
+        <label><input type="checkbox" /> Remember me</label>
+        <a
+          class="forgot-password"
+          href="/forgot-password"
+          th:href="@{/forgot-password}"
+          style="color: green"
+          >Forgot Password?</a
+        >
+      </div>
+      <div class="form-group">
+        <span
+          >New user?
+          <a
+            href="/registration"
+            th:href="@{/registration}"
+            style="color: green"
+            >Register here</a
+          ></span
+        >
+      </div>
     </div>
-    <div class="form-group">
-        <span>New user? <a href="/registration" th:href="@{/registration}" style="color: #2196F3;">Register here</a></span>
-    </div>
-</div>
 
-<script>
-    // Funcție pentru verificarea stării tasta CapsLock
-    function checkCapsLock(event) {
-        const capsLockOn = event.getModifierState && event.getModifierState('CapsLock');
+    <script>
+      // Funcție pentru verificarea stării tasta CapsLock
+      function checkCapsLock(event) {
+        const capsLockOn =
+          event.getModifierState && event.getModifierState("CapsLock");
         if (capsLockOn) {
-            document.getElementById('capsLockWarning').style.visibility = 'visible';
+          document.getElementById("capsLockWarning").style.visibility =
+            "visible";
         } else {
-            document.getElementById('capsLockWarning').style.visibility = 'hidden';
+          document.getElementById("capsLockWarning").style.visibility =
+            "hidden";
         }
-    }
-</script>
-</body>
-
+      }
+    </script>
+  </body>
 </html>

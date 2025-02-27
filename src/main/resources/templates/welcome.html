@@ -46,7 +46,9 @@
               <a class="menu-link" href="#reviews">Reviews</a>
             </li>
             <li class="menu-item auth-dropdown">
-              <a class="menu-link auth-button-header" href="#">Autentificare</a>
+              <a class="menu-link auth-button-header" href="#"
+                >Authentication</a
+              >
               <ul class="auth-options">
                 <li>
                   <a th:href="@{/registration}" class="auth-link">Pacient</a>
@@ -68,8 +70,7 @@
     <section class="about-section" id="about">
       <div class="about-container">
         <h1 class="about-title">Welcome to Gastro Tracker</h1>
-
-        <p>
+        <p class="about-paragraph">
           Gastro Tracker is your personalized tool for managing and monitoring
           dietary habits. Whether you're a patient or a doctor, this application
           aims to simplify the process of tracking and maintaining a healthy
@@ -139,37 +140,39 @@
 
     <section class="reviews-section" id="reviews">
       <h2 class="reviews-title">What Our Users Say</h2>
-      <div class="review-card">
-        <div class="review-header">
-          <h3 class="review-author">Jane Doe</h3>
-          <div class="review-rating">★★★★☆</div>
+      <div class="review-card-container">
+        <div class="review-card">
+          <div class="review-header">
+            <h3 class="review-author">Jane Doe</h3>
+            <div class="review-rating">★★★★☆</div>
+          </div>
+          <p class="review-text">
+            Gastro Tracker has made managing my meals and health so much easier!
+            It's a life changer for anyone with dietary restrictions.
+          </p>
         </div>
-        <p class="review-text">
-          Gastro Tracker has made managing my meals and health so much easier!
-          It's a life changer for anyone with dietary restrictions.
-        </p>
-      </div>
 
-      <div class="review-card">
-        <div class="review-header">
-          <h3 class="review-author">John Smith</h3>
-          <div class="review-rating">★★★★★</div>
+        <div class="review-card">
+          <div class="review-header">
+            <h3 class="review-author">John Smith</h3>
+            <div class="review-rating">★★★★★</div>
+          </div>
+          <p class="review-text">
+            Love the features and ease of use! My doctor can see my diet history
+            easily now, and it’s improved my treatments significantly.
+          </p>
         </div>
-        <p class="review-text">
-          Love the features and ease of use! My doctor can see my diet history
-          easily now, and it’s improved my treatments significantly.
-        </p>
-      </div>
 
-      <div class="review-card">
-        <div class="review-header">
-          <h3 class="review-author">Emily Rose</h3>
-          <div class="review-rating">★★★★☆</div>
+        <div class="review-card">
+          <div class="review-header">
+            <h3 class="review-author">Emily Rose</h3>
+            <div class="review-rating">★★★★☆</div>
+          </div>
+          <p class="review-text">
+            A fantastic app for anyone looking to keep track of their meals and
+            symptoms. Highly recommend!
+          </p>
         </div>
-        <p class="review-text">
-          A fantastic app for anyone looking to keep track of their meals and
-          symptoms. Highly recommend!
-        </p>
       </div>
     </section>
 

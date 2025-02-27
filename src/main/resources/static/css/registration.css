@@ -19,7 +19,7 @@ ol {
   padding: 0;
 }
 
-body {
+.body-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.container {
+.form-container {
   width: 280px;
   background-color: #fff;
   padding: 10px 20px 0 20px;
@@ -39,7 +39,7 @@ body {
   text-align: center;
 }
 
-.registration-title {
+.form-title {
   font-size: 1.3em;
   color: #046145;
 }
@@ -100,12 +100,12 @@ input[type="submit"]:active {
   transform: scale(0.98);
 }
 
-a {
+.login-link {
   color: #046145;
   text-decoration: none;
 }
 
-a:hover {
+.login-link:hover {
   text-decoration: underline;
 }
 
@@ -131,7 +131,7 @@ a:hover {
 }
 
 @media screen and (min-width: 768px) {
-  body {
+  .body-form {
     min-width: 768px;
   }
 
@@ -156,14 +156,14 @@ a:hover {
     padding: 20px;
   } */
 
-  .container {
+  .form-container {
     width: 480px;
     padding-top: 20px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  body {
+  .body-form {
     min-width: 1024px;
   }
 }

@@ -49,8 +49,10 @@ public class SecurityConfig {
 								"/swagger-ui/**",
 								"/",
 								"/css/**",
-								"/js/**", // Permite accesul la fișierele JavaScript
-								"/images/**" // Permite accesul la fișierele de imagini
+								"/js/**",
+								"/images/**",
+								"/icons.svg"
+
 						).permitAll()
 						.anyRequest().authenticated())
 
